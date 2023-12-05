@@ -18,35 +18,36 @@ namespace wolfproblem
             }
 
             //Console.WriteLine("Gözlemlenen Kurtların ID'lerini Giriniz: ");
-            string[] wolfIdStrArray = Console.ReadLine().Split(' ');
+            string wolfIdInput = Console.ReadLine();
 
-            int[] wolfKindIdArray = new int[arrayLenght];
+            int[] validWolfKinds = { 1, 2, 3, 4, 5 };
+            List<int> wolfKindIdList = new List<int>();
 
-            if (wolfIdStrArray.Length != arrayLenght)
+            foreach (char character in wolfIdInput)
             {
-                Console.WriteLine("hatalı işlem");
-                return;
-            }
-
-            for (int i = 0; i < arrayLenght; i++)
-            {
-                if (!int.TryParse(wolfIdStrArray[i], out wolfKindIdArray[i]))
+                if (char.IsDigit(character))
                 {
-                    Console.WriteLine("Yalnızca Rakam Girişi Yapılmalıdır!!!");
-                    return;
+                    int currentDigit = int.Parse(character.ToString());
+
+                    if (validWolfKinds.Contains(currentDigit))
+                    {
+                        wolfKindIdList.Add(currentDigit);
+                    }
+
                 }
+
             }
 
-
-            if (wolfKindIdArray.Any(id => id < 1 || id > 5))
+            if (wolfKindIdList.Count != arrayLenght)
             {
-                Console.WriteLine("Kurt Türleri Id'leri 1-5 Aralığında Olmalıdır.");
+                Console.WriteLine("Kurt id sayısı dizi boyutu kadar olmalıdır!");
                 return;
             }
+
 
             Dictionary<int, int> wolfKindCounter = new Dictionary<int, int>();
 
-            foreach (int wolfKindId in wolfKindIdArray)
+            foreach (int wolfKindId in wolfKindIdList)
             {
                 if (wolfKindCounter.ContainsKey(wolfKindId))
                     wolfKindCounter[wolfKindId]++;
@@ -61,5 +62,6 @@ namespace wolfproblem
 
             Console.WriteLine(mostPopularWolfKind);
         }
+
     }
 }
