@@ -3,7 +3,7 @@
 ### Structures Used
 
 *İf-Else* </br>
-*Foreach * </br>
+*Foreach* </br>
 *Dictionary* </br>
 *List* </br>
 *Array*
