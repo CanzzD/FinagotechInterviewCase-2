@@ -1,10 +1,10 @@
 # FinagotechInterviewCase-2
 ## Wolf-Problem
-### Kullanılan Yapılar
+### Structures Used
 
 *İf-Else* </br>
-*Foreach Döngüsü* </br>
+*Foreach * </br>
 *Dictionary* </br>
-*Liste* </br>
-*Diziler*
+*List* </br>
+*Array*
 
